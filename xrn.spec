@@ -56,8 +56,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %_sysconfdir/X11/app-defaults/XRn
 %_bindir/xrn
 %_mandir/man1/xrn.1*
-%_libdir/X11/app-defaults/XRn
-%_libdir/X11/app-defaults
+/usr/lib/X11/app-defaults/XRn
+/usr/lib/X11/app-defaults
 
 %{_menudir}/*
 
