@@ -4,7 +4,7 @@ Version:        9.02
 Release:        %mkrel 15
 License:	BSD
 Group:		Networking/News
-BuildRequires:	X11-devel, bison, flex, libxpm-devel, xorg-x11 xmkmf
+BuildRequires:	X11-devel, bison, flex, libxpm-devel, xorg-x11 imake
 
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	xrn
