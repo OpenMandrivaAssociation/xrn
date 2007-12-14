@@ -54,11 +54,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc README README.Linux TODO COMMON-PROBLMS COPYRIGHT CREDITS
 %config(noreplace) %_sysconfdir/X11/app-defaults/XRn
-/usr/X11R6/bin/xrn
-/usr/X11R6/man/man1/xrn.1*
-/usr/X11R6/lib/X11/app-defaults/XRn
-/usr/X11R6/lib/X11/app-defaults
-/usr/X11R6/lib/X11/doc/html/xrn.1.html
+%_bindir/xrn
+%_mandir/man1/xrn.1*
+%_libdir/X11/app-defaults/XRn
+%_libdir/X11/app-defaults
+
 %{_menudir}/*
 
 
