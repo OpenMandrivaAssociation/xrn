@@ -12,7 +12,6 @@ Patch0:		xrn-9.02-rh.patch.bz2
 Patch1:		xrn-imake.patch.bz2
 
 URL:		ftp://ftp.x.org/contrib/applications/xrn
-BuildRoot:	%_tmppath/%name-%version-%release-root
 
 %description
 A simple Usenet News reader for the X Window System.  Xrn allows you to
