@@ -7,7 +7,6 @@ Group:		Networking/News
 BuildRequires:	X11-devel, bison, flex, libxpm-devel, xorg-x11 imake
 
 Source0:	%{name}-%{version}.tar.bz2
-Source1:	xrn
 Patch0:		xrn-9.02-rh.patch.bz2
 Patch1:		xrn-imake.patch.bz2
 
@@ -35,9 +34,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %make install install.man DESTDIR=$RPM_BUILD_ROOT
 
-install -m 755 -d $RPM_BUILD_ROOT/%{_menudir}
-install -m 644 %SOURCE1 $RPM_BUILD_ROOT/%{_menudir}
-
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-xrn.desktop
+[Desktop Entry]
+Type=Application
+Categories=News;
+Name=Xrn
+Comment=News reader
+Exec=/usr/X11R6/bin/xrn
+Icon=news_section
+EOF
 
 
 %post
@@ -58,6 +64,6 @@ rm -rf $RPM_BUILD_ROOT
 /usr/lib/X11/app-defaults/XRn
 /usr/lib/X11/app-defaults
 
-%{_menudir}/*
+%{_datadir}/applications/mandriva-*.desktop
 
 
