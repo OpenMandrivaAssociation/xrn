@@ -1,7 +1,7 @@
 Summary:	An X Window System based news reader
 Name:		xrn
 Version:        9.02
-Release:        %mkrel 16
+Release:        %mkrel 17
 License:	BSD
 Group:		Networking/News
 BuildRequires:	X11-devel, bison, flex, libxpm-devel, xorg-x11 imake
@@ -28,12 +28,18 @@ Install the xrn package if you need a simple news reader for X.
 
 %build
 xmkmf
+perl -p -i -e "s|XAPPLOADDIR = .*|XAPPLOADDIR = %{_datadir}/X11/app-defaults|" Makefile
 make CDEBUGFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %make install install.man DESTDIR=$RPM_BUILD_ROOT
+# A link to ../../../etc/X11/app-defaults is made
+APPDEF=%{buildroot}%{_libdir}/X11/app-defaults
+if   [ -L $APPDEF ]; then rm    $APPDEF
+elif [ -d $APPDEF ]; then rmdir $APPDEF
+fi
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
 cat << EOF > %buildroot%{_datadir}/applications/mandriva-xrn.desktop
@@ -42,7 +48,7 @@ Type=Application
 Categories=News;
 Name=Xrn
 Comment=News reader
-Exec=/usr/X11R6/bin/xrn
+Exec=/usr/bin/xrn
 Icon=news_section
 EOF
 
@@ -59,12 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %doc README README.Linux TODO COMMON-PROBLMS COPYRIGHT CREDITS
-%config(noreplace) %_sysconfdir/X11/app-defaults/XRn
+%{_datadir}/X11/app-defaults/XRn
 %_bindir/xrn
 %_mandir/man1/xrn.1*
-/usr/lib/X11/app-defaults/XRn
-/usr/lib/X11/app-defaults
-
 %{_datadir}/applications/mandriva-*.desktop
-
-
