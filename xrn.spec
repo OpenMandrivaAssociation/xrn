@@ -1,10 +1,10 @@
 Summary:	An X Window System based news reader
 Name:		xrn
 Version:        9.02
-Release:        %mkrel 17
+Release:        %mkrel 18
 License:	BSD
 Group:		Networking/News
-BuildRequires:	libxorg-x11-devel bison flex libxpm-devel imake
+BuildRequires:	libx11-devel bison flex libxpm-devel imake
 
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		xrn-9.02-rh.patch.bz2
