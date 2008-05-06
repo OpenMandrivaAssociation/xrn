@@ -4,7 +4,7 @@ Version:        9.02
 Release:        %mkrel 17
 License:	BSD
 Group:		Networking/News
-BuildRequires:	X11-devel, bison, flex, libxpm-devel, xorg-x11 imake
+BuildRequires:	libxorg-x11-devel bison flex libxpm-devel imake
 
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		xrn-9.02-rh.patch.bz2
@@ -12,6 +12,9 @@ Patch1:		xrn-imake.patch.bz2
 
 URL:		ftp://ftp.x.org/contrib/applications/xrn
 BuildRoot:	%_tmppath/%name-%version-%release-root
+
+# Avoid problems with symlinks - xrn used to think it owned /usr/lib/X11
+Requires(pre): x11-server-common > 1.4.0.90-12
 
 %description
 A simple Usenet News reader for the X Window System.  Xrn allows you to
@@ -35,8 +38,8 @@ make CDEBUGFLAGS="$RPM_OPT_FLAGS"
 rm -rf $RPM_BUILD_ROOT
 
 %make install install.man DESTDIR=$RPM_BUILD_ROOT
-# A link to ../../../etc/X11/app-defaults is made
-APPDEF=%{buildroot}%{_libdir}/X11/app-defaults
+# A link to ../../../etc/X11/app-defaults is made and named lib in x86_64
+APPDEF=%{buildroot}/usr/lib/X11/app-defaults
 if   [ -L $APPDEF ]; then rm    $APPDEF
 elif [ -d $APPDEF ]; then rmdir $APPDEF
 fi
