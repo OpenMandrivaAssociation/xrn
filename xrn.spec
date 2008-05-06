@@ -4,7 +4,7 @@ Version:        9.02
 Release:        %mkrel 18
 License:	BSD
 Group:		Networking/News
-BuildRequires:	libx11-devel bison flex libxpm-devel imake
+BuildRequires:	libxaw-devel bison flex libxpm-devel imake
 
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		xrn-9.02-rh.patch.bz2
