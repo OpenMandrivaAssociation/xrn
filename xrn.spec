@@ -5,6 +5,7 @@ Release:        %mkrel 19
 License:	BSD
 Group:		Networking/News
 BuildRequires:	libxaw-devel bison flex libxpm-devel imake
+BuildRequires:	libxp-devel
 
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		xrn-9.02-rh.patch
