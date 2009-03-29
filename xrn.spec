@@ -7,8 +7,9 @@ Group:		Networking/News
 BuildRequires:	libxaw-devel bison flex libxpm-devel imake
 
 Source0:	%{name}-%{version}.tar.bz2
-Patch0:		xrn-9.02-rh.patch.bz2
-Patch1:		xrn-imake.patch.bz2
+Patch0:		xrn-9.02-rh.patch
+Patch1:		xrn-imake.patch
+Patch2:		xrn-9.02-fix-str-fmt.patch
 
 URL:		ftp://ftp.x.org/contrib/applications/xrn
 BuildRoot:	%_tmppath/%name-%version-%release-root
@@ -28,6 +29,7 @@ Install the xrn package if you need a simple news reader for X.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p0
 
 %build
 xmkmf
