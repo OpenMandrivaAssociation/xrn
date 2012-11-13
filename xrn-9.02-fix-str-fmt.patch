@@ -1,0 +1,11 @@
+--- compose.c.str	2009-03-29 13:19:42.000000000 +0200
++++ compose.c	2009-03-29 13:20:45.000000000 +0200
+@@ -1931,7 +1931,7 @@
+ 
+      if (PostingMode == FORWARD) {
+ 	 int line_size;
+-       (void) sprintf(input, FORWARDED_ARTICLE_END_MSG);
++       (void) sprintf(input, "%s", FORWARDED_ARTICLE_END_MSG);
+ 	 line_size = strlen(input);
+ 	 if (prefix_size + line_size > size - cur_size - 1) {
+ 	     /* See above */
