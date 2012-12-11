@@ -79,3 +79,116 @@ rm -rf $RPM_BUILD_ROOT
 %_bindir/xrn
 %_mandir/man1/xrn.1*
 %{_datadir}/applications/mandriva-*.desktop
+
+
+%changelog
+* Mon Sep 21 2009 Thierry Vignaud <tvignaud@mandriva.com> 9.02-20mdv2010.0
++ Revision: 446269
+- rebuild
+
+* Sun Mar 29 2009 Funda Wang <fundawang@mandriva.org> 9.02-19mdv2009.1
++ Revision: 362105
+- br libxp
+- fix str fmt
+
+* Sat Aug 09 2008 Thierry Vignaud <tvignaud@mandriva.com> 9.02-19mdv2009.0
++ Revision: 269841
+- rebuild early 2009.0 package (before pixel changes)
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Tue May 06 2008 Paulo Andrade <pcpa@mandriva.com.br> 9.02-18mdv2009.0
++ Revision: 202137
+- Another x86_64 build fix, as aparently libxorg-x11-devel only works
+  properly on i586.
+- Update BuildRequires and Requires(pre) to ensure this package will not
+  overwrite symlinks.
+- Install Xt resources file in proper directory and don't try to be owner
+  of the base directory. This is required to allow x11-server-common being
+  the owner package of most shared directories used by xorg packages.
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Thu Dec 20 2007 Thierry Vignaud <tvignaud@mandriva.com> 9.02-16mdv2008.1
++ Revision: 135559
+- auto-convert XDG menu entry
+- kill re-definition of %%buildroot on Pixel's request
+- fix build on x86_64
+- adapt to new X11 layout
+- buildrequires xmkmf
+- buildrequires X11-devel instead of XFree86-devel
+- import xrn
+
+
+* Sun Jan 08 2006 Anssi Hannula <anssi@mandriva.org> 9.02-15mdk
+- fix buildrequires for x86_64
+
+* Fri Jul 29 2005 Nicolas Lécureuil <neoclust@mandriva.org> 9.02-14mdk
+- Fix BuildRequires
+
+* Thu Jun 02 2005 Nicolas Lécureuil <neoclust@mandriva.org> 9.02-13mdk
+- Rebuild
+
+* Sat May 03 2003 Olivier Thauvin <thauvin@aerov.jussieu.fr> 9.02-12mdk
+- rebuild for rpm 4.2
+
+* Thu Jan 10 2002 David BAUDENS <baudens@mandrakesoft.com> 9.02-11mdk
+- Fix menu entry (png icon)
+
+* Wed Aug 01 2001 Stefan van der Eijk <stefan@eijk.nu> 9.02-10mdk
+- BuildRequires: bison, flex
+
+* Thu Jan 11 2001 David BAUDENS <baudens@mandrakesoft.com> 9.02-9mdk
+- BuildRequires: libxpm4-devel
+
+* Sat Dec 16 2000 Etienne Faure  <etienne@mandraksoft.com> 9.02-8mdk
+- cleaned menu entry
+- added normal and large icons
+
+* Tue Aug 08 2000 Frederic Lepied <flepied@mandrakesoft.com> 9.02-7mdk
+- automatically added BuildRequires
+
+* Wed Jul 19 2000 Thierry Vignaud <tvignaud@mandrakesoft.com> 9.02-6mdk
+- major spec cleaning
+
+* Thu Jul 19 2000 Etienne Faure <etienne@mandrakesoft.com> 9.02-5mdk
+- added the /usr/doc/xrn folder to installed files
+ 
+* Thu Jul 19 2000 etienne Faure <etienne@mandrakesoft.com> 9.02-4mdk
+- bziped xrn.xpm icon
+
+* Tue Apr 18 2000 dam's <damien@mandrakesoft.com> 9.02-3mdk
+- Convert gif icon to xpm.
+
+* Mon Apr 17 2000 dam's <damien@mandrakesoft.com> 9.02-2mdk
+- Added menu entry
+
+* Tue Mar 28 2000 dam's <damien@mandrakesoft.com> 9.02-1mdk
+- Release.
+
+* Thu Nov 25 1999 Florent Villard <warly@mandrakesoft.com>
+- spec file cleaning 
+
+* Thu May  6 1999 Bernhard Rosenkränzer <bero@mandrakesoft.com>
+- handle RPM_OPT_FLAGS
+- Mandrake adaptions
+
+* Sun Mar 21 1999 Cristian Gafton <gafton@redhat.com> 
+- auto rebuild in the new build environment (release 3)
+
+* Thu Dec 17 1998 Michael Maher <mike@redhat.com>
+- built package for 6.0
+
+* Thu Aug 13 1998 Jeff Johnson <jbj@redhat.com>
+- build root
+
+* Thu May 07 1998 Prospector System <bugs@redhat.com>
+- translations modified for de, fr, tr
+
+* Thu Oct 23 1997 Marc Ewing <marc@redhat.com>
+- add wmconfig
+
+* Thu Jul 31 1997 Erik Troan <ewt@redhat.com>
+- built against glibc
